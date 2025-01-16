@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<div class="row">
+   <div class="col-lg-12 text-center">
+       <h1 class="mt-5">Witaj w mojej bibliotece filmów</h1>
+       <p class="lead">Znajdziesz tutaj tylko najlepsze tytuły!</p>
+   </div>
+   {% for movie in movies %}
+   <div class="card text-white col-lg-3 col-md-6 mb-4 h-100">
+     <div class="card-img-wrapper position-relative">
+        <img class="card-img" src="https://api.kino-total.net/cache/ae/7c/ae7c0cc468cc4424806faed819a0f32e.jpg" alt="">
+            <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center" style="background-color: rgba(0, 0, 0, 0.6); position: absolute; top: 0; left: 0; right: 0; bottom: 0;">
+                <h5 class="card-title text-center">Movie title</h5>
+                <p class="card-text text-center">This is a example movie description.</p>
+            <div class="card-footer text-center">
+                <a href="#" class="btn btn-light">Pokaż więcej</a>
+            </div>
+        </div>
+    </div>
+  </div>
+   {% endfor %}
+</div>
+
+{% endblock %}
