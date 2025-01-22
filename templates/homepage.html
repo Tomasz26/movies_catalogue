@@ -15,7 +15,7 @@
                 <h5 class="card-title text-center">{{ movie.title }}</h5>
                 <p class="card-text text-center">Średnia ocena filmu: {{ movie.vote_average }}</p>
             <div class="card-footer text-center">
-                <a href="#" class="btn btn-light">Pokaż więcej</a>
+                <a href="{{ url_for('movie_details', movie_id=movie.id) }}" class="btn btn-light">Pokaż więcej</a>
             </div>
         </div>
     </div>
