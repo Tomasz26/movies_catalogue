@@ -8,15 +8,16 @@ def get_poster_url(poster_api_path, size="w342"):
     base_url = "https://image.tmdb.org/t/p/"
     return f"{base_url}{size}/{poster_api_path}"
 
-def get_movies():
+def get_movies(type):
     #func tht downloads most popular movies from tmdb API
-    target = 'https://api.themoviedb.org/3/movie/popular'
+    target = f"https://api.themoviedb.org/3/movie/{type}"
     r = requests.get(target, params=params)
+    r.raise_for_status()
     return(r.json())
 
-def get_popular_movies(how_many):
+def get_popular_movies(how_many, type):
     #func that limits r.json cause its huge
-    r = get_movies()
+    r = get_movies(type)
     movies = r['results'][:how_many]
     return movies
 
