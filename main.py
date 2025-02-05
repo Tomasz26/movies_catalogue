@@ -3,6 +3,7 @@ import requests
 import json
 import tmdb_client
 import random
+import datetime
 
 app = Flask(__name__)
 movie_list = ['popular', 'top_rated', 'upcoming', 'now_playing']
@@ -38,3 +39,9 @@ def search():
     else:
         searched = []
     return render_template("search.html", searched = searched, search_query = search_query)
+
+@app.route("/today")
+def airtoday():
+    movies = tmdb_client.get_airing_today(8)
+    today = datetime.date.today()
+    return render_template("today.html", movies = movies, today = today)

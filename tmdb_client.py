@@ -39,3 +39,10 @@ def search(search_query):
     r = requests.get(endpoint, params=params)
     result = r.json()
     return result['results']
+
+def get_airing_today(how_many):
+    #func tht gets series airing today in TV
+    endpoint = f"https://api.themoviedb.org/3/tv/airing_today"
+    r = requests.get(endpoint, params=params)
+    result = r.json()
+    return result['results'][:how_many]
