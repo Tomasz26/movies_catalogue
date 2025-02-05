@@ -29,3 +29,12 @@ def movie_details(movie_id):
     credits = tmdb_client.get_movie_credits(movie_id)
     cast = credits.get('cast', [])
     return render_template("movie_details.html", movie=details, cast = cast)
+
+@app.route("/search")
+def search():
+    search_query = request.args.get("q", "")
+    if search_query:
+        searched = tmdb_client.search(search_query)
+    else:
+        searched = []
+    return render_template("search.html", searched = searched, search_query = search_query)

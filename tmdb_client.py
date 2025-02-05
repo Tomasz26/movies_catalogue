@@ -32,3 +32,10 @@ def get_movie_credits(movie_id):
     endpoint = f"https://api.themoviedb.org/3/movie/{movie_id}/credits"
     r = requests.get(endpoint, params=params)
     return r.json()
+
+def search(search_query):
+    #func tht search for movies
+    endpoint = f"https://api.themoviedb.org/3/search/movie?query={search_query}"
+    r = requests.get(endpoint, params=params)
+    result = r.json()
+    return result['results']
