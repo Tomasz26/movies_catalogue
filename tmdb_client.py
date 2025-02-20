@@ -1,6 +1,7 @@
 import requests
+import os
+key = os.environ.get("TMDB_API_TOKEN", "")
 
-key = "500f36ef896a715b62b47503917bb44f"
 params = {"api_key": key}
 
 def call_tmdb_api(endpoint):
